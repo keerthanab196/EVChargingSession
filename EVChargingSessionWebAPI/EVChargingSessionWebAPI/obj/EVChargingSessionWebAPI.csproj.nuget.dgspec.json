@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\EVChargingSession\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI.csproj": {}
+    "F:\\EVChargingSession\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI.csproj": {}
   },
   "projects": {
-    "E:\\EVChargingSession\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI.csproj": {
+    "F:\\EVChargingSession\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\EVChargingSession\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI.csproj",
+        "projectUniqueName": "F:\\EVChargingSession\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI.csproj",
         "projectName": "EVChargingSessionWebAPI",
-        "projectPath": "E:\\EVChargingSession\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI.csproj",
+        "projectPath": "F:\\EVChargingSession\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI.csproj",
         "packagesPath": "C:\\Users\\mknpr\\.nuget\\packages\\",
-        "outputPath": "E:\\EVChargingSession\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI\\obj\\",
+        "outputPath": "F:\\EVChargingSession\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

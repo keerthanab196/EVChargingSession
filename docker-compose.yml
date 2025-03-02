@@ -1,0 +1,78 @@
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: admin
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+    networks:
+      - ev-network
+
+  mqtt-broker:
+    image: eclipse-mosquitto:2.0.15
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"  
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+
+    networks:
+      - ev-network
+
+  backend:
+    build:
+      context: ./EVChargingSessionWebAPI/EVChargingSessionWebAPI  
+      dockerfile: Dockerfile 
+    container_name: backend
+    ports:
+      - "5000:80"
+    environment:
+      - MONGODB_CONNECTION_STRING=mongodb://root:example@mongodb:27017/?authSource=admin
+      - MONGODB_DATABASE=EVChargingDB
+      - MONGODB_TIMEOUT=30
+      - MQTT_BROKER_HOST=mqtt-broker
+      - MQTT_BROKER_PORT=1883
+      - MQTT_WEBSOCKET_PORT=9001
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    depends_on:
+      - mongodb
+      - mqtt-broker
+        
+    networks:
+      - ev-network
+
+  frontend:
+    build:
+      context: ./FrontEnd/ev-charging-app
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://backend:80
+    depends_on:
+      - backend
+    networks:
+      - ev-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  ev-network:
+    driver: bridge

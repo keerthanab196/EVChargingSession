@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WrIed+6l60Y=",
+  "dgSpecHash": "ue1KXSLNr74=",
   "success": true,
-  "projectFilePath": "E:\\EVChargingSession\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI.csproj",
+  "projectFilePath": "F:\\EVChargingSession\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI\\EVChargingSessionWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mknpr\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\mknpr\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.19\\microsoft.aspnetcore.openapi.7.0.19.nupkg.sha512",
