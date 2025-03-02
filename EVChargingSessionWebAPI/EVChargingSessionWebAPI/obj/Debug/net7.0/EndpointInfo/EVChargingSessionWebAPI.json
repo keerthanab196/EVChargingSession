@@ -1,0 +1,57 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "EVChargingSessionWebAPI",
+    "version": "1.0"
+  },
+  "paths": {
+    "/charging/status": {
+      "get": {
+        "tags": [
+          "ChargingSession"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/charging/start": {
+      "post": {
+        "tags": [
+          "ChargingSession"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/charging/Stop/{sessionId}": {
+      "post": {
+        "tags": [
+          "ChargingSession"
+        ],
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Rm3nN2Yqs+LMGbxqYGeIgW5FQYI6Wl8NAKW04/N5GQk=",
+  "Source": "EVChargingSessionWebAPI",
+  "BasePath": "_content/EVChargingSessionWebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

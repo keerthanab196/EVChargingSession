@@ -1,0 +1,38 @@
+[
+  {
+    "ContainingType": "EVChargingSessionWebAPI.Controllers.ChargingSessionController",
+    "Method": "StartCharging",
+    "RelativePath": "charging/start",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EVChargingSessionWebAPI.Controllers.ChargingSessionController",
+    "Method": "GetLatestSession",
+    "RelativePath": "charging/status",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EVChargingSessionWebAPI.Controllers.ChargingSessionController",
+    "Method": "StopCharging",
+    "RelativePath": "charging/Stop/{sessionId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sessionId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
