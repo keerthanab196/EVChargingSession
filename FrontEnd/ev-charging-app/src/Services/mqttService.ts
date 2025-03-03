@@ -1,7 +1,7 @@
 //import { connect } from "http2";
 import mqtt from "mqtt";
 
-const connUrl="ws://localhost:9001";
+const connUrl="ws://mqtt-broker:9001";
 const client=mqtt.connect(connUrl);
 
 client.on('connect',()=>{

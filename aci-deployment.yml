@@ -1,0 +1,71 @@
+apiVersion: "2021-03-01"
+location: eastus
+name: ev-charging-app
+properties:
+  containers:
+    - name: mongodb
+      properties:
+        image: evchargingsessionregistry.azurecr.io/mongo:6.0
+        resources:
+          requests:
+            cpu: 1
+            memoryInGB: 2
+        environmentVariables:
+          - name: MONGO_INITDB_ROOT_USERNAME
+            value: root
+          - name: MONGO_INITDB_ROOT_PASSWORD
+            value: example
+        ports:
+          - port: 27017
+
+    - name: mqtt-broker
+      properties:
+        image: evchargingsessionregistry.azurecr.io/mosquitto:2.0.15
+        resources:
+          requests:
+            cpu: 1
+            memoryInGB: 2
+        ports:
+          - port: 1883
+          - port: 9001
+
+    - name: backend
+      properties:
+        image: evchargingsessionregistry.azurecr.io/backend:latest
+        resources:
+          requests:
+            cpu: 1
+            memoryInGB: 2
+        environmentVariables:
+          - name: ASPNETCORE_ENVIRONMENT
+            value: Development
+          - name: MONGODB_CONNECTION_STRING
+            value: mongodb://root:example@mongodb:27017
+          - name: MQTT_BROKER_HOST
+            value: mqtt-broker
+        ports:
+          - port: 8080
+
+    - name: frontend
+      properties:
+        image: evchargingsessionregistry.azurecr.io/frontend:latest
+        resources:
+          requests:
+            cpu: 1
+            memoryInGB: 2
+        ports:
+          - port: 80
+
+  osType: Linux
+  restartPolicy: Always
+  ipAddress:
+    type: Public
+    ports:
+      - protocol: TCP
+        port: 80
+      - protocol: TCP
+        port: 1883
+      - protocol: TCP
+        port: 8080
+      - protocol: TCP
+        port: 9001
